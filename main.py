@@ -112,3 +112,36 @@ if F%2 != 0:
 else:
     print("%d/%d" % (step, F - step + 1))
 """
+# 수학1. 설탕 11->3이 안나옴
+N = int(input())
+
+EA = 0
+ea = 0
+if N//5 != 0 or N//3 != 0:
+    if N%5 == 0:
+        print('a1')
+        EA = N//5
+    elif N%3 == 0:
+        print('a2')
+        EA = N//3
+    ea += N//5
+    if (N%5)%3 == 0 :
+        print('a3')
+        ea += (N%5)//3
+    else:
+        print('a4')
+        ea = -1
+else:
+    print('a5')
+    ea = -1
+print('..', EA, ea)
+if EA > 0 and ea > 0:
+    print('b1', EA, ea)
+    print(min([EA, ea]))
+elif ea > 0:
+    print('b2')
+    print(ea)
+elif EA > 0:
+    print(EA)
+else:
+    print(-1)
