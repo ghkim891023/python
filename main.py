@@ -113,6 +113,7 @@ else:
     print("%d/%d" % (step, F - step + 1))
 """
 # 수학1. 설탕 11->3이 안나옴
+"""
 N = int(input())
 
 EA = 0
@@ -145,3 +146,49 @@ elif EA > 0:
     print(EA)
 else:
     print(-1)
+"""
+#1. 1712 손익분기점 - 시간 초과
+# a, b, c = map(int, input().split())
+""" 출력초과
+# i = 1 
+# while 1:
+#     if c==1 or c<b :
+#         print(-1)
+#         break
+#     if(a+b*i) >= c*i:
+#         i += 1
+#     else:
+#         print(i)
+#         break  """
+# if c == 1 or c<=b :
+#     print(-1)
+# else:
+#     result = a//(c-b) + 1 # a = (c-b)*x
+#     print(result)         # 1000 = (170-70)*x  --> result = x+1
+
+# 4. 2869 달팽이
+# A, B, V = map(int, input().split())  # (A-B)*X + A >= V
+# result = 0
+# if (V-A)%(A-B)==0:
+#     result = (V-A)//(A-B)+1  # 2 1 5
+# else:
+#     result = (V-A)//(A-B)+2  # 5 1 6
+# print(result)
+
+# 수학1. 설탕2 --> 틀렸습니다.
+N = int(input())  # 3x + 5y = 18  --> x = 18/3 - (5/3)y
+x = 0
+y = 0
+result_list = []
+while 1:
+    x = round(N/3, 2) - round((5/3)*y,2) #반올림 안하면, x=1.999999가 나옴
+    print(x,y)
+    if x - int(x) == 0 and type(y)==int : #x값 소수점이 0이면(6.0)
+        result_list.append(int(x+y))
+    y += 1
+    if 5*y > N:
+        break
+if len(result_list)==0:
+    print(-1)
+else:
+    print(min(result_list))
